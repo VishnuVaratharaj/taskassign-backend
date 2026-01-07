@@ -8,6 +8,9 @@ const crt = db.createConnection({
     password: process.env.MYSQL_ROOT_PASSWORD,
     database: process.env.MYSQL_DATABASE,
     port: process.env.MYSQLPORT,
+	ssl: {
+	rejectUnauthorized: false
+  },
     timezone: 'local'
 });
 
@@ -134,6 +137,7 @@ function admin(data) {
 }
 
 module.exports = { crt, createUserTable, createTaskTable, checkUser, getTask, updateTask, assignTask, employeeDetails, completedTask, createEmployee, empidCreation, dupilcateEntry, excelsheet, employeeCount, admin };
+
 
 
 
