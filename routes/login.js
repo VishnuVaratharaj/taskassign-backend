@@ -19,9 +19,14 @@ router.get("/userscreate",tableUserCreation);
 router.get("/taskscreate",tableTaskCreation);
 router.get("/counts",count);
 router.get("/admin", addAdmin);
+router.get("/timezone",async (req,res)=>{
+  await crt.query("SET GLOBAL time_zone = '+05:30';");
+  return res.status(200).send("Time Zone Updated Successfully");
+});
 
 
 module.exports = router;
+
 
 
 
